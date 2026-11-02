@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Team Contribution</title>
+    <style>
+        body {
+            font-family: system-ui, -apple-system, sans-serif;
+            max-width: 650px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+            background-color: #f8fafc;
+            color: #1e293b;
+        }
+        .card {
+            background: #ffffff;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            margin-bottom: 1.5rem;
+        }
+        button {
+            cursor: pointer;
+            padding: 0.6rem 1rem;
+            background-color: #0f172a;
+            color: #ffffff;
+            border: none;
+            border-radius: 4px;
+            font-weight: 500;
+            margin-bottom: 1rem;
+        }
+        #contributor-student-id {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-top: 0.5rem;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Team Contribution</h1>
+
+<div class="card">
+    <button type="button" id="load-contributor">Show Contributor</button>
+    <div id="contributor-student-id"></div>
+</div>
+
+<p><a href="index.html">Back to Task Manager</a></p>
+
+<script>
+    const loadBtn = document.getElementById('load-contributor');
+    const contributorDisplay = document.getElementById('contributor-student-id');
+
+    loadBtn.addEventListener('click', async () => {
+        try {
+            const response = await fetch('contribution.json');
+            if (!response.ok) {
+                throw new Error(`HTTP ${response.status}`);
+            }
+            const data = await response.json();
+            contributorDisplay.textContent = `Contributor Student ID: ${data.contributorStudentId}`;
+        } catch (error) {
+            contributorDisplay.textContent = `Error loading contributor: ${error.message}`;
+        }
+    });
+</script>
+</body>
+</html>

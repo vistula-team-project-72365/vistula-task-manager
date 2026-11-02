@@ -36,5 +36,5 @@ Features:
 
 ## Team Collaboration (Pull Requests)
 
-- **Incoming Pull Request (merged into this repository):** TBD
-- **Outgoing Pull Request (merged into partner's repository):** TBD
+- **Incoming Pull Request (merged into this repository):** done
+- **Outgoing Pull Request (merged into partner's repository):** done here https://github.com/vistula-team-project-72365/vistula-task-manager-73479-fork
